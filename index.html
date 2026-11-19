@@ -7,45 +7,47 @@
 <meta name="description" content="Presentes personalizados por sublimação: canecas, camisetas, almofadas, squeezes e kits. Feitos sob medida, com acabamento premium.">
 <meta name="theme-color" content="#07080A">
 <link rel="icon" href="logo.svg">
+<script>try{const t=localStorage.getItem('pz_theme');if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500;1,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
-:root{--bg:#07080A;--s1:#0F1114;--s2:#16191D;--ln:#24282E;--tx:#E9EBEE;--mu:#8B9199;--pl:linear-gradient(135deg,#F4F5F7 0%,#B9BEC5 38%,#7E848C 55%,#D9DCE0 78%,#A3A8AF 100%);--w:1240px}
+:root{--bg:#07080A;--s1:#0F1114;--s2:#16191D;--ln:#24282E;--tx:#E9EBEE;--mu:#8B9199;--pl:linear-gradient(135deg,#F4F5F7 0%,#B9BEC5 38%,#7E848C 55%,#D9DCE0 78%,#A3A8AF 100%);--w:1240px;--hdr:rgba(7,8,10,.72);--on:#0B0C0E;--b2:var(--b2);--sub:var(--sub);--glow:var(--glow);--img1:#23272d;--img2:#0d0f12;--kit1:#1f2328;--kit2:#2a2e34;--kit3:#101215;--stroke:#6E747C;--hi:var(--hi);--snow:rgba(233,235,238,.6);--glass:rgba(22,25,29,.6);--mg:url(#gp)}
+[data-theme=light]{--bg:#F4F4F2;--s1:#FFFFFF;--s2:#ECEEF0;--ln:#DCDFE3;--tx:#0E1013;--mu:#5E646C;--pl:linear-gradient(135deg,#0E1013 0%,#3D424A 40%,#1A1C20 60%,#5A6068 82%,#23262B 100%);--hdr:rgba(244,244,242,.8);--on:#F4F5F7;--b2:#C4C8CE;--sub:#3D424A;--glow:#E2E5E8;--img1:#FFFFFF;--img2:#E6E8EB;--kit1:#E6E9EC;--kit2:#DDE1E5;--kit3:#FFFFFF;--stroke:#9AA0A7;--hi:#2A2D32;--snow:rgba(60,66,74,.35);--glass:rgba(255,255,255,.75);--mg:url(#gd)}
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
-body{background:var(--bg);color:var(--tx);font:16px/1.6 Inter,system-ui,sans-serif;overflow-x:hidden}
+body{background:var(--bg);color:var(--tx);transition:background .4s,color .4s;font:16px/1.6 Inter,system-ui,sans-serif;overflow-x:hidden}
 a{color:inherit;text-decoration:none}
 .wrap{max-width:var(--w);margin:0 auto;padding:0 24px}
 .serif{font-family:'Cormorant Garamond',serif}
 .metal{background:var(--pl);-webkit-background-clip:text;background-clip:text;color:transparent}
 .eyebrow{font-size:11px;letter-spacing:.32em;text-transform:uppercase;color:var(--mu)}
-.btn{display:inline-flex;align-items:center;gap:10px;background:var(--pl);background-size:200% 200%;color:#0B0C0E;padding:15px 26px;border-radius:999px;font-weight:600;font-size:14px;letter-spacing:.02em;transition:background-position .6s,transform .3s}
+.btn{display:inline-flex;align-items:center;gap:10px;background:var(--pl);background-size:200% 200%;color:var(--on);padding:15px 26px;border-radius:999px;font-weight:600;font-size:14px;letter-spacing:.02em;transition:background-position .6s,transform .3s}
 .btn:hover{background-position:100% 100%;transform:translateY(-2px)}
-.btn.g{background:transparent;color:var(--tx);border:1px solid #3a3f46}
-.btn.g:hover{border-color:#C9CCD1}
+.btn.g{background:transparent;color:var(--tx);border:1px solid var(--b2)}
+.btn.g:hover{border-color:var(--hi)}
 /* barra de avisos */
-.bar{background:var(--pl);color:#0B0C0E;font-size:12px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;overflow:hidden;white-space:nowrap}
+.bar{background:var(--pl);color:var(--on);font-size:12px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;overflow:hidden;white-space:nowrap}
 .mq{display:inline-flex;animation:mq 38s linear infinite}.mq span{padding:9px 28px}
 @keyframes mq{to{transform:translateX(-50%)}}
 /* topo */
-header{position:sticky;top:0;z-index:20;background:rgba(7,8,10,.72);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid rgba(36,40,46,.7)}
+header{position:sticky;top:0;z-index:20;background:var(--hdr);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid var(--ln)}
 header .wrap{display:flex;align-items:center;justify-content:space-between;height:72px;gap:20px}
 .logo{display:flex;align-items:center;gap:10px}.logo svg{width:26px;height:32px}
 .logo b{font:600 22px/1 'Cormorant Garamond',serif;letter-spacing:.14em}
 nav.m{display:flex;gap:30px;font-size:14px;color:var(--mu)}nav.m a:hover{color:var(--tx)}
 header .btn{padding:10px 18px;font-size:13px}
 /* hero */
-.hero{position:relative;min-height:calc(100vh - 106px);display:grid;align-items:center;padding:60px 0;background:radial-gradient(50% 60% at 72% 45%,#1d2126 0,transparent 70%)}
+.hero{position:relative;min-height:calc(100vh - 106px);display:grid;align-items:center;padding:60px 0;background:radial-gradient(50% 60% at 72% 45%,var(--glow) 0,transparent 70%)}
 .hero .wrap{display:grid;grid-template-columns:1.15fr .85fr;gap:40px;align-items:center}
 .hero h1{font:500 clamp(48px,7.4vw,104px)/.98 'Cormorant Garamond',serif;letter-spacing:-.01em;margin:22px 0 26px}
 .hero h1 em{font-style:italic}
-.hero p{color:#B4B9C0;font-size:18px;max-width:480px;margin-bottom:34px}
+.hero p{color:var(--sub);font-size:18px;max-width:480px;margin-bottom:34px}
 .cta{display:flex;gap:12px;flex-wrap:wrap}
-.chip{display:inline-flex;align-items:center;gap:10px;border:1px solid var(--ln);border-radius:999px;padding:7px 14px 7px 8px;font-size:13px;color:#C9CCD1;background:rgba(22,25,29,.6)}
-.chip i{width:8px;height:8px;border-radius:50%;background:#E9EBEE;box-shadow:0 0 0 4px rgba(233,235,238,.15);animation:pulse 2s infinite}
+.chip{display:inline-flex;align-items:center;gap:10px;border:1px solid var(--ln);border-radius:999px;padding:7px 14px 7px 8px;font-size:13px;color:var(--hi);background:var(--glass)}
+.chip i{width:8px;height:8px;border-radius:50%;background:var(--tx);box-shadow:0 0 0 4px rgba(233,235,238,.15);animation:pulse 2s infinite}
 @keyframes pulse{50%{box-shadow:0 0 0 8px rgba(233,235,238,0)}}
 .emblem{position:relative;aspect-ratio:1;max-width:460px;width:100%;justify-self:center}
 .emblem .ring{position:absolute;inset:0;animation:spin 40s linear infinite}
-.emblem .ring text{font:500 13px Inter;fill:#8B9199;text-transform:uppercase}
+.emblem .ring text{font:500 13px Inter;fill:var(--mu);text-transform:uppercase}
 .emblem .tri{position:absolute;inset:24%;filter:drop-shadow(0 20px 60px rgba(220,224,230,.18))}
 .emblem .tri svg{width:100%;height:100%}
 .emblem:before{content:'';position:absolute;inset:14%;border-radius:50%;border:1px solid var(--ln)}
@@ -54,8 +56,8 @@ header .btn{padding:10px 18px;font-size:13px}
 /* faixa grande */
 .big{border-block:1px solid var(--ln);overflow:hidden;white-space:nowrap;padding:22px 0}
 .big .mq{animation-duration:46s}
-.big span{font:500 clamp(40px,6vw,84px)/1 'Cormorant Garamond',serif;padding:0 26px;color:transparent;-webkit-text-stroke:1px #6E747C}
-.big span:nth-child(even){color:#C9CCD1;-webkit-text-stroke:0;font-style:italic}
+.big span{font:500 clamp(40px,6vw,84px)/1 'Cormorant Garamond',serif;padding:0 26px;color:transparent;-webkit-text-stroke:1px var(--stroke)}
+.big span:nth-child(even){color:var(--hi);-webkit-text-stroke:0;font-style:italic}
 section{padding:120px 0}
 .head{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap;margin-bottom:48px}
 h2{font:500 clamp(38px,5vw,64px)/1.02 'Cormorant Garamond',serif;margin-top:12px}
@@ -64,26 +66,26 @@ h2 em{font-style:italic}
 /* produtos */
 .grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
 .card{position:relative;border:1px solid var(--ln);border-radius:18px;overflow:hidden;background:var(--s1);transition:transform .5s cubic-bezier(.2,.7,.2,1),border-color .4s}
-.card:hover{transform:translateY(-6px);border-color:#4a5058}
-.card .img{aspect-ratio:4/5;display:grid;place-items:center;background:radial-gradient(70% 60% at 50% 40%,#23272d 0,#0d0f12 100%);position:relative;overflow:hidden}
-.card .img svg{width:46%;height:auto;stroke:url(#gp);fill:none;stroke-width:1.3;transition:transform .7s cubic-bezier(.2,.7,.2,1)}
+.card:hover{transform:translateY(-6px);border-color:var(--stroke)}
+.card .img{aspect-ratio:4/5;display:grid;place-items:center;background:radial-gradient(70% 60% at 50% 40%,var(--img1) 0,var(--img2) 100%);position:relative;overflow:hidden}
+.card .img svg{width:46%;height:auto;stroke:var(--mg);fill:none;stroke-width:1.3;transition:transform .7s cubic-bezier(.2,.7,.2,1)}
 .card:hover .img svg{transform:scale(1.08) rotate(-3deg)}
 .card .img:after{content:'';position:absolute;inset:0;background:linear-gradient(115deg,transparent 30%,rgba(255,255,255,.09) 48%,transparent 60%);transform:translateX(-100%);transition:transform .9s}
 .card:hover .img:after{transform:translateX(100%)}
-.card .tg{position:absolute;top:14px;left:14px;font-size:10px;letter-spacing:.2em;text-transform:uppercase;border:1px solid #3a3f46;border-radius:999px;padding:4px 10px;color:#C9CCD1;background:rgba(7,8,10,.5)}
+.card .tg{position:absolute;top:14px;left:14px;font-size:10px;letter-spacing:.2em;text-transform:uppercase;border:1px solid var(--b2);border-radius:999px;padding:4px 10px;color:var(--hi);background:var(--glass)}
 .card .in{padding:18px 18px 20px;display:flex;justify-content:space-between;align-items:flex-end;gap:10px}
 .card h3{font:500 24px/1.1 'Cormorant Garamond',serif}
 .card .pr{font-size:13px;color:var(--mu);margin-top:4px}
-.card .go{width:40px;height:40px;border-radius:50%;border:1px solid #3a3f46;display:grid;place-items:center;flex:none;transition:.3s}
-.card:hover .go{background:var(--pl);color:#0B0C0E;border-color:transparent}
+.card .go{width:40px;height:40px;border-radius:50%;border:1px solid var(--b2);display:grid;place-items:center;flex:none;transition:.3s}
+.card:hover .go{background:var(--pl);color:var(--on);border-color:transparent}
 /* kits */
-.kits{background:linear-gradient(180deg,var(--bg),#0c0d10 30%,#0c0d10 70%,var(--bg))}
+.kits{background:linear-gradient(180deg,var(--bg),var(--s1) 30%,var(--s1) 70%,var(--bg))}
 .kg{display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:16px}
-.kit{border:1px solid var(--ln);border-radius:22px;padding:34px;min-height:380px;display:flex;flex-direction:column;justify-content:space-between;background:radial-gradient(90% 70% at 100% 0,#1f2328 0,var(--s1) 60%);transition:border-color .4s}
-.kit:hover{border-color:#5a6068}
-.kit.f{background:radial-gradient(80% 80% at 80% 10%,#2a2e34 0,#101215 65%)}
+.kit{border:1px solid var(--ln);border-radius:22px;padding:34px;min-height:380px;display:flex;flex-direction:column;justify-content:space-between;background:radial-gradient(90% 70% at 100% 0,var(--kit1) 0,var(--s1) 60%);transition:border-color .4s}
+.kit:hover{border-color:var(--stroke)}
+.kit.f{background:radial-gradient(80% 80% at 80% 10%,var(--kit2) 0,var(--kit3) 65%)}
 .kit h3{font:500 38px/1.05 'Cormorant Garamond',serif;margin:14px 0 12px}
-.kit ul{list-style:none;color:#B4B9C0;font-size:14px;display:grid;gap:6px;margin-bottom:24px}
+.kit ul{list-style:none;color:var(--sub);font-size:14px;display:grid;gap:6px;margin-bottom:24px}
 .kit li:before{content:'✦';margin-right:10px;color:#8B9199;font-size:10px}
 .cdn{display:flex;gap:22px;margin:6px 0 26px}
 .cdn div{display:grid}.cdn b{font:500 48px/1 'Cormorant Garamond',serif}.cdn small{font-size:10px;letter-spacing:.24em;color:var(--mu);text-transform:uppercase}
@@ -93,7 +95,7 @@ h2 em{font-style:italic}
 .step .n{font:500 76px/1 'Cormorant Garamond',serif;margin-bottom:18px}
 .step h3{font:500 28px 'Cormorant Garamond',serif;margin-bottom:8px}.step p{color:var(--mu);font-size:15px}
 /* empresas */
-.b2b{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;border:1px solid var(--ln);border-radius:26px;padding:64px;background:radial-gradient(60% 90% at 0 100%,#1c2025 0,var(--s1) 70%)}
+.b2b{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;border:1px solid var(--ln);border-radius:26px;padding:64px;background:radial-gradient(60% 90% at 0 100%,var(--glow) 0,var(--s1) 70%)}
 .b2b ul{list-style:none;display:grid;gap:0}
 .b2b li{display:flex;justify-content:space-between;gap:20px;padding:18px 0;border-bottom:1px solid var(--ln);font-size:15px}.b2b li span{color:var(--mu)}
 /* faq */
@@ -105,13 +107,30 @@ summary:after{content:'+';font:300 26px Inter;color:var(--mu);transition:transfo
 details[open] summary:after{transform:rotate(45deg)}
 details p{color:var(--mu);padding-top:12px;max-width:720px}
 /* final */
-.final{text-align:center;padding:150px 0;background:radial-gradient(45% 60% at 50% 50%,#1e2227 0,transparent 70%)}
+.final{text-align:center;padding:150px 0;background:radial-gradient(45% 60% at 50% 50%,var(--glow) 0,transparent 70%)}
 .final h2{font-size:clamp(46px,7vw,96px);margin:18px 0 34px}
 footer{border-top:1px solid var(--ln);padding:48px 0 36px;color:var(--mu);font-size:14px}
 footer .wrap{display:flex;justify-content:space-between;gap:30px;flex-wrap:wrap;align-items:flex-start}
 footer nav{display:flex;gap:24px;flex-wrap:wrap}footer a:hover{color:var(--tx)}
-.wa{position:fixed;right:20px;bottom:20px;z-index:30;width:56px;height:56px;border-radius:50%;background:var(--pl);display:grid;place-items:center;box-shadow:0 10px 30px rgba(0,0,0,.5);transition:transform .3s}
+.wa{position:fixed;right:20px;bottom:20px;z-index:30;width:56px;height:56px;border-radius:50%;background:var(--pl);display:grid;place-items:center;box-shadow:0 10px 30px rgba(0,0,0,.35);color:var(--on);transition:transform .3s}
 .wa:hover{transform:scale(1.08)}
+/* natal */
+.hr{display:flex;gap:10px;align-items:center}
+.thm{width:40px;height:40px;border-radius:50%;border:1px solid var(--b2);background:transparent;color:var(--tx);display:grid;place-items:center;cursor:pointer;transition:border-color .3s,transform .3s}.thm:hover{border-color:var(--tx);transform:rotate(20deg)}
+.xmas{position:relative;overflow:hidden;text-align:center;padding:110px 0 100px;border-top:1px solid var(--ln);background:radial-gradient(55% 65% at 50% 45%,var(--glow) 0,transparent 72%)}
+.xmas .wrap{position:relative;z-index:1}
+.clock{display:flex;justify-content:center;gap:clamp(8px,2.4vw,24px);margin:44px 0 40px}
+.clock div{min-width:clamp(70px,17vw,190px);padding:clamp(14px,2.6vw,30px) 8px clamp(10px,2vw,22px);border:1px solid var(--ln);border-radius:clamp(14px,2vw,24px);background:var(--glass);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}
+.clock b{display:block;font:500 clamp(48px,11vw,150px)/1 'Cormorant Garamond',serif;font-variant-numeric:lining-nums tabular-nums}
+.clock small{display:block;margin-top:8px;font-size:clamp(9px,1.2vw,12px);letter-spacing:.3em;text-transform:uppercase;color:var(--mu)}
+.clock b.tk{animation:tk .55s cubic-bezier(.2,.7,.2,1)}
+@keyframes tk{from{opacity:.15;transform:translateY(-14px)}}
+.dl{max-width:560px;margin:0 auto 34px;font-size:14px;color:var(--mu)}
+.dl .row{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}.dl b{color:var(--tx)}
+.track{height:4px;background:var(--s2);border-radius:9px;margin-top:10px;overflow:hidden}.track i{display:block;height:100%;background:var(--pl);transition:width 1s}
+.snow{position:absolute;inset:0;pointer-events:none}
+.snow i{position:absolute;top:-12px;border-radius:50%;background:var(--snow);animation:fall linear infinite}
+@keyframes fall{to{transform:translate3d(40px,1000px,0)}}
 /* animações de entrada */
 .js .rv{opacity:0;transform:translateY(28px);transition:opacity 1s cubic-bezier(.2,.7,.2,1),transform 1s cubic-bezier(.2,.7,.2,1)}
 .js .rv.in{opacity:1;transform:none}
@@ -123,7 +142,8 @@ footer nav{display:flex;gap:24px;flex-wrap:wrap}footer a:hover{color:var(--tx)}
 <body>
 <svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
 <linearGradient id="gp" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#F4F5F7"/><stop offset=".4" stop-color="#B9BEC5"/><stop offset=".6" stop-color="#7E848C"/><stop offset=".8" stop-color="#D9DCE0"/><stop offset="1" stop-color="#A3A8AF"/></linearGradient>
-<symbol id="tri" viewBox="0 0 100 120"><g fill="url(#gp)"><polygon points="50,2 58,14 42,14"/><rect x="46.5" y="12" width="7" height="100"/><path d="M16 26l7 8v26l21 16v6h-6v-2L16 64z"/><path d="M84 26l-7 8v26L56 76v6h6v-2l22-16z"/><rect x="32" y="82" width="36" height="7"/><rect x="36" y="89" width="6" height="13"/><rect x="58" y="89" width="6" height="13"/></g></symbol>
+<linearGradient id="gd" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#0E1013"/><stop offset=".4" stop-color="#4A4F57"/><stop offset=".6" stop-color="#1A1C20"/><stop offset=".85" stop-color="#6E747C"/><stop offset="1" stop-color="#2A2D32"/></linearGradient>
+<symbol id="tri" viewBox="0 0 100 120"><g style="fill:var(--mg)"><polygon points="50,2 58,14 42,14"/><rect x="46.5" y="12" width="7" height="100"/><path d="M16 26l7 8v26l21 16v6h-6v-2L16 64z"/><path d="M84 26l-7 8v26L56 76v6h6v-2l22-16z"/><rect x="32" y="82" width="36" height="7"/><rect x="36" y="89" width="6" height="13"/><rect x="58" y="89" width="6" height="13"/></g></symbol>
 <symbol id="arr" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.6"/></symbol>
 </defs></svg>
 
@@ -132,7 +152,7 @@ footer nav{display:flex;gap:24px;flex-wrap:wrap}footer a:hover{color:var(--tx)}
 <header><div class="wrap">
   <a href="#" class="logo" aria-label="Poseydon Sublimação"><svg><use href="#tri"/></svg><b class="metal">POSEYDON</b></a>
   <nav class="m"><a href="#colecao">Coleção</a><a href="#kits">Kits de fim de ano</a><a href="#como">Como funciona</a><a href="#empresas">Empresas</a><a href="#faq">Dúvidas</a></nav>
-  <a class="btn" data-wa="Olá! Quero fazer um pedido personalizado." href="#"><span>Fazer pedido</span><svg width="16" height="16"><use href="#arr"/></svg></a>
+  <div class="hr"><button class="thm" id="thm" aria-label="Alternar modo claro ou escuro"></button><a class="btn" data-wa="Olá! Quero fazer um pedido personalizado." href="#"><span>Fazer pedido</span><svg width="16" height="16"><use href="#arr"/></svg></a></div>
 </div></header>
 
 <section class="hero" style="padding-top:60px"><div class="wrap">
@@ -140,13 +160,21 @@ footer nav{display:flex;gap:24px;flex-wrap:wrap}footer a:hover{color:var(--tx)}
     <div class="chip rv"><i></i><span id="chip">Black Friday chegando</span></div>
     <h1 class="rv">Presentes que<br><em class="metal">ficam para sempre.</em></h1>
     <p class="rv">Canecas, camisetas, almofadas e kits personalizados por sublimação. Cada peça é feita sob medida, com acabamento que não desbota.</p>
-    <div class="cta rv"><a class="btn" href="#colecao">Ver coleção <svg width="16" height="16"><use href="#arr"/></svg></a><a class="btn g" data-wa="Olá! Quero um orçamento." href="#">Pedir orçamento</a></div>
+    <div class="cta rv"><a class="btn" href="#natal">Presentes de Natal <svg width="16" height="16"><use href="#arr"/></svg></a><a class="btn g" data-wa="Olá! Quero um orçamento." href="#">Pedir orçamento</a></div>
   </div>
   <div class="emblem rv" aria-hidden="true">
     <svg class="ring" viewBox="0 0 400 400"><defs><path id="c" d="M200,200 m-176,0 a176,176 0 1,1 352,0 a176,176 0 1,1 -352,0"/></defs><text textLength="1100" lengthAdjust="spacing"><textPath href="#c" textLength="1100" lengthAdjust="spacing">Poseydon · sublimação · feito sob medida · Poseydon · sublimação · feito sob medida ·</textPath></text></svg>
     <div class="tri"><svg><use href="#tri"/></svg></div>
   </div>
 </div><div class="scroll">Role ↓</div></section>
+
+<section class="xmas" id="natal"><div class="snow" aria-hidden="true"></div><div class="wrap">
+  <div class="eyebrow rv">Contagem para o Natal</div>
+  <h2 class="rv">O presente perfeito<br>tem <em class="metal">hora marcada</em>.</h2>
+  <div class="clock rv" id="clock" role="timer" aria-label="Tempo até o Natal"></div>
+  <div class="dl rv"><div class="row"><span>Entrega garantida para pedidos até <b>15/12</b></span><b id="dlt"></b></div><div class="track"><i id="dlb"></i></div></div>
+  <a class="btn rv" data-wa="Olá! Quero garantir meu presente de Natal." href="#">Garantir meu presente <svg width="16" height="16"><use href="#arr"/></svg></a>
+</div></section>
 
 <div class="big" aria-hidden="true"><div class="mq" id="big"></div></div>
 
@@ -158,7 +186,7 @@ footer nav{display:flex;gap:24px;flex-wrap:wrap}footer a:hover{color:var(--tx)}
 <section id="kits" class="kits"><div class="wrap">
   <div class="head rv"><div><div class="eyebrow">Temporada 2026</div><h2>Kits de <em class="metal">fim de ano</em>.</h2></div><p>Combinações prontas para presentear. Saem mais em conta que as peças avulsas e chegam em embalagem de presente.</p></div>
   <div class="kg">
-    <div class="kit f rv"><div><div class="eyebrow">Black Friday · 27/11</div><h3>As melhores ofertas do ano começam aqui.</h3><div class="cdn" id="cdn"></div></div><a class="btn" data-wa="Olá! Quero entrar na lista VIP da Black Friday." href="#">Entrar na lista VIP <svg width="16" height="16"><use href="#arr"/></svg></a></div>
+    <div class="kit f rv"><div><div class="eyebrow">Natal · entrega garantida até 15/12</div><h3>Presentes de Natal com o nome de quem você ama.</h3><ul><li>Canecas e almofadas com foto</li><li>Embalagem de presente inclusa</li><li>Arte grátis com prévia</li></ul></div><a class="btn" data-wa="Olá! Quero um presente de Natal personalizado." href="#">Montar meu presente <svg width="16" height="16"><use href="#arr"/></svg></a></div>
     <div class="kit rv"><div><div class="eyebrow">Para casais e família</div><h3>Kit Presente</h3><ul><li>Caneca personalizada</li><li>Almofada 40×40 com foto</li><li>Embalagem de presente</li></ul></div><a class="btn g" data-wa="Olá! Tenho interesse no Kit Presente." href="#">Quero este kit</a></div>
     <div class="kit rv"><div><div class="eyebrow">Para empresas</div><h3>Kit Corporativo</h3><ul><li>Caneca ou squeeze com logo</li><li>Cartão com mensagem</li><li>A partir de 10 unidades</li></ul></div><a class="btn g" data-wa="Olá! Quero um orçamento do Kit Corporativo." href="#">Pedir orçamento</a></div>
   </div>
@@ -200,13 +228,13 @@ footer nav{display:flex;gap:24px;flex-wrap:wrap}footer a:hover{color:var(--tx)}
   <p style="width:100%;font-size:12px">© <span id="yr"></span> Poseydon Sublimação</p>
 </div></footer>
 
-<a class="wa" data-wa="Olá! Quero fazer um pedido personalizado." href="#" aria-label="Falar no WhatsApp"><svg width="26" height="26" viewBox="0 0 24 24" fill="#0B0C0E"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2c-1.5 0-3-.4-4.3-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.8 11.9 11.9 0 0 0 4.6 4c1.7.7 2.4.8 3.2.7.5-.1 1.5-.6 1.8-1.2s.2-1.1.1-1.2l-.4-.2z"/></svg></a>
+<a class="wa" data-wa="Olá! Quero fazer um pedido personalizado." href="#" aria-label="Falar no WhatsApp"><svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2c-1.5 0-3-.4-4.3-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.8 11.9 11.9 0 0 0 4.6 4c1.7.7 2.4.8 3.2.7.5-.1 1.5-.6 1.8-1.2s.2-1.1.1-1.2l-.4-.2z"/></svg></a>
 
 <script>
 /* ===== CONFIGURAÇÃO: troque aqui ===== */
 const WHATSAPP='5500000000000';            // DDI + DDD + número, só dígitos
 const INSTAGRAM='https://instagram.com/';  // link do perfil
-const BF='2026-11-27',CORTE_NATAL='2026-12-15';
+const NATAL='2026-12-25',CORTE_NATAL='2026-12-15';
 const PRODUTOS=[ // [nome, a partir de (R$), ícone, selo]
  ['Caneca personalizada',39.9,'mug','Mais vendida'],['Caneca mágica',54.9,'mug','Revela a foto'],['Camiseta sublimada',59.9,'shirt',''],['Almofada com foto',49.9,'pillow',''],
  ['Squeeze de alumínio',44.9,'bottle',''],['Azulejo decorativo',34.9,'tile',''],['Chaveiro',14.9,'key',''],['Kit presente',119.9,'gift','Natal']];
@@ -223,13 +251,21 @@ const wa=m=>`https://wa.me/${WHATSAPP}?text=${encodeURIComponent(m)}`;
 const days=d=>Math.max(0,Math.ceil((new Date(d+'T00:00')-new Date())/864e5));
 const brl=n=>n.toLocaleString('pt-BR',{style:'currency',currency:'BRL'});
 document.getElementById('prods').innerHTML=PRODUTOS.map(([n,p,i,t])=>`<a class="card rv" data-wa="Olá! Quero personalizar: ${n}." href="#"><div class="img">${t?`<span class="tg">${t}</span>`:''}<svg viewBox="0 0 100 100">${ICON[i]}</svg></div><div class="in"><div><h3>${n}</h3><div class="pr">a partir de ${brl(p)}</div></div><span class="go"><svg width="16" height="16"><use href="#arr"/></svg></span></div></a>`).join('');
-const avisos=[`Black Friday em ${days(BF)} dias`,'Frete grátis acima de R$ 99',`Pedidos de Natal até ${CORTE_NATAL.slice(8)}/12`,'Arte grátis com prévia para aprovação','Enviamos para todo o Brasil'];
+const avisos=[`Natal em ${days(NATAL)} dias`,'Frete grátis acima de R$ 99',`Pedidos de Natal até ${CORTE_NATAL.slice(8)}/12`,'Arte grátis com prévia para aprovação','Enviamos para todo o Brasil'];
 const rep=(a,n)=>Array(n).fill(a).flat();
 document.getElementById('bar').innerHTML=rep(avisos,4).map(t=>`<span>${t} ✦</span>`).join('');
 document.getElementById('big').innerHTML=rep(['Canecas','Camisetas','Almofadas','Squeezes','Azulejos','Kits presente'],4).map(t=>`<span>${t}</span>`).join('');
-const bd=days(BF);document.getElementById('chip').textContent=bd>0?`Black Friday em ${bd} dias · entre na lista VIP`:`Pedidos de Natal até ${CORTE_NATAL.slice(8)}/12`;
-function tick(){let s=Math.max(0,(new Date(BF+'T00:00')-new Date())/1e3);const v=[[Math.floor(s/86400),'dias'],[Math.floor(s%86400/3600),'horas'],[Math.floor(s%3600/60),'min']];document.getElementById('cdn').innerHTML=v.map(([n,l])=>`<div><b class="metal">${String(n).padStart(2,'0')}</b><small>${l}</small></div>`).join('')}
-tick();setInterval(tick,3e4);
+document.getElementById('chip').textContent=`Natal em ${days(NATAL)} dias · pedidos até ${CORTE_NATAL.slice(8)}/12`;
+function tick(){const s=Math.max(0,Math.floor((new Date(NATAL+'T00:00')-new Date())/1e3)),v=[[Math.floor(s/86400),'dias'],[Math.floor(s%86400/3600),'horas'],[Math.floor(s%3600/60),'min'],[s%60,'seg']],el=document.getElementById('clock');
+if(!el.children.length)el.innerHTML=v.map(([,l])=>`<div><b class="metal"></b><small>${l}</small></div>`).join('');
+v.forEach(([n],i)=>{const b=el.children[i].firstChild,t=String(n).padStart(2,'0');if(b.textContent!==t){b.textContent=t;b.classList.remove('tk');void b.offsetWidth;b.classList.add('tk')}});
+const a=new Date('2026-11-01T00:00'),z=new Date(CORTE_NATAL+'T23:59'),d=days(CORTE_NATAL);
+document.getElementById('dlb').style.width=Math.min(100,Math.max(0,(new Date()-a)/(z-a)*100))+'%';document.getElementById('dlt').textContent=d>0?`faltam ${d} dias`:'prazo encerrado: fale conosco'}
+tick();setInterval(tick,1e3);
+const sn=document.querySelector('.snow');for(let i=0;i<46;i++){const e=document.createElement('i'),z=2+Math.random()*3.5;e.style.cssText=`left:${Math.random()*100}%;width:${z}px;height:${z}px;animation-duration:${9+Math.random()*12}s;animation-delay:${-Math.random()*20}s;opacity:${.25+Math.random()*.65}`;sn.appendChild(e)}
+const SUN='<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>',MOON='<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z"/></svg>';
+const H=document.documentElement,thm=document.getElementById('thm'),setI=()=>{const l=H.dataset.theme==='light';thm.innerHTML=l?MOON:SUN;thm.setAttribute('aria-label',l?'Ativar modo escuro':'Ativar modo claro')};
+thm.onclick=()=>{H.dataset.theme=H.dataset.theme==='light'?'dark':'light';try{localStorage.setItem('pz_theme',H.dataset.theme)}catch(e){}setI()};setI();
 document.querySelectorAll('[data-wa]').forEach(a=>{a.href=wa(a.dataset.wa);a.target='_blank';a.rel='noopener'});
 document.getElementById('ig').href=INSTAGRAM;document.getElementById('yr').textContent=new Date().getFullYear();
 const io='IntersectionObserver' in window?new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.12,rootMargin:'0px 0px -40px'}):null;
