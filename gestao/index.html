@@ -1,0 +1,241 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Poseydon Hub</title>
+<link rel="icon" href="../logo.svg">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#07080A;--s1:#0F1114;--s2:#16191D;--ln:#24282E;--tx:#E9EBEE;--mu:#8B9199;--pl:linear-gradient(135deg,#F4F5F7 0%,#B9BEC5 38%,#7E848C 55%,#D9DCE0 78%,#A3A8AF 100%);--ok:#9FD3B5;--bad:#E3A3A3;--r:14px}
+*{box-sizing:border-box;margin:0}
+body{background:var(--bg);color:var(--tx);font:14px/1.5 Inter,system-ui,sans-serif;min-height:100vh}
+.app{display:grid;grid-template-columns:240px 1fr;min-height:100vh}
+aside{background:radial-gradient(120% 60% at 0 0,#1a1d22 0,var(--s1) 60%);border-right:1px solid var(--ln);padding:24px 14px;position:sticky;top:0;height:100vh;display:flex;flex-direction:column;gap:26px}
+.brand{display:flex;align-items:center;gap:10px;padding:0 6px}
+.brand svg{width:34px;height:40px;flex:none}
+.brand b{font:700 23px/1 'Cormorant Garamond',serif;letter-spacing:.08em}
+.brand small{display:block;font-size:9px;letter-spacing:.34em;text-transform:uppercase;color:var(--mu);margin-top:4px}
+.metal{background:var(--pl);-webkit-background-clip:text;background-clip:text;color:transparent}
+nav{display:flex;flex-direction:column;gap:2px}
+nav a{color:var(--mu);text-decoration:none;padding:9px 12px;border-radius:10px;font-weight:500}
+nav a:hover{color:var(--tx);background:var(--s2)}
+nav a.on{color:#0B0C0E;background:var(--pl)}
+aside .ft{margin-top:auto;font-size:11px;color:var(--mu);padding:0 8px}
+main{padding:28px 32px 64px;max-width:1280px;width:100%}
+.top{display:flex;justify-content:space-between;align-items:flex-end;gap:16px;flex-wrap:wrap;margin-bottom:22px}
+.top p{color:var(--mu)}
+h1{font:600 36px/1.1 'Cormorant Garamond',serif;letter-spacing:.02em}
+h2{font:600 22px 'Cormorant Garamond',serif;margin-bottom:12px}
+h3{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--mu);font-weight:600;margin-bottom:10px}
+.grid{display:grid;gap:14px;grid-template-columns:repeat(12,minmax(0,1fr))}
+.c3{grid-column:span 3}.c4{grid-column:span 4}.c5{grid-column:span 5}.c6{grid-column:span 6}.c7{grid-column:span 7}.c8{grid-column:span 8}.c12{grid-column:span 12}
+.card{background:var(--s1);border:1px solid var(--ln);border-radius:var(--r);padding:18px;min-width:0}
+.kpi .v{font:600 30px/1.2 'Cormorant Garamond',serif;margin-top:2px}
+.s{color:var(--mu);font-size:12px}
+.bar{height:6px;background:var(--s2);border-radius:9px;overflow:hidden;margin-top:10px}.bar i{display:block;height:100%;background:var(--pl)}
+.ch{width:100%;height:auto;display:block}.ch text{fill:var(--mu);font-size:11px;font-family:Inter}
+.hb{display:grid;gap:12px}.hb>div{display:grid;grid-template-columns:1fr auto;gap:4px 10px;font-size:13px}.hb .bar{grid-column:1/-1;margin:0}
+form.f{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;align-items:end}
+label{display:grid;gap:4px;font-size:12px;color:var(--mu)}
+input,select,textarea{background:var(--s2);border:1px solid var(--ln);color:var(--tx);border-radius:10px;padding:9px 10px;font:inherit;width:100%}
+input:focus,select:focus{outline:1px solid #B9BEC5}
+.btn{background:var(--pl);color:#0B0C0E;border:0;border-radius:10px;padding:10px 16px;font:600 13px Inter,sans-serif;cursor:pointer}
+.btn.g{background:transparent;color:var(--tx);border:1px solid var(--ln)}
+.btn:hover{filter:brightness(1.08)}
+table{width:100%;border-collapse:collapse;font-size:13px}th,td{text-align:left;padding:8px 6px;border-bottom:1px solid var(--ln);white-space:nowrap}th{color:var(--mu);font-weight:500}td.n,th.n{text-align:right}
+.tw{overflow-x:auto;max-height:420px}
+.x{background:none;border:0;color:var(--mu);cursor:pointer;font-size:15px}.x:hover{color:var(--bad)}
+.note{border:1px solid #3a3f46;background:linear-gradient(90deg,#1a1d22,#111317);padding:10px 14px;border-radius:12px;color:#C9CCD1;font-size:13px;margin-bottom:14px}
+ul.ins{list-style:none;padding:0;display:grid;gap:10px}ul.ins li{padding-left:18px;position:relative}ul.ins li:before{content:'';position:absolute;left:2px;top:7px;width:6px;height:6px;transform:rotate(45deg);background:var(--pl)}
+.task{display:flex;gap:10px;align-items:flex-start;padding:8px 0;border-bottom:1px solid var(--ln);cursor:pointer}.task:last-child{border:0}.task input{width:auto;margin-top:3px;accent-color:#C9CCD1}.task.done span{color:var(--mu);text-decoration:line-through}
+.tag{font-size:11px;border:1px solid var(--ln);border-radius:20px;padding:2px 9px;color:var(--mu);white-space:nowrap}
+.row{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.cd .v{font:600 40px/1 'Cormorant Garamond',serif}
+.sw{height:80px;border-radius:12px;border:1px solid var(--ln);margin-bottom:8px}
+.av{width:42px;height:42px;border-radius:50%;display:grid;place-items:center;background:var(--pl);color:#0B0C0E;font:700 18px 'Cormorant Garamond',serif;flex:none}
+.up{color:var(--ok)}.dn{color:var(--bad)}
+.hero{display:grid;place-items:center;padding:40px 16px;background:radial-gradient(60% 80% at 50% 40%,#22262c 0,#07080A 70%);border-radius:var(--r);border:1px solid var(--ln)}
+.hero svg{width:110px;height:132px;filter:drop-shadow(0 6px 24px rgba(220,224,230,.15))}
+.hero b{font:600 40px 'Cormorant Garamond',serif;letter-spacing:.18em;margin-top:14px}
+.hero small{letter-spacing:.5em;text-transform:uppercase;color:var(--mu);font-size:11px}
+ol.rm{padding-left:20px;display:grid;gap:8px}
+@media(max-width:900px){.app{grid-template-columns:1fr}aside{position:sticky;height:auto;padding:12px 16px;gap:10px;z-index:5;border-right:0;border-bottom:1px solid var(--ln)}nav{flex-direction:row;overflow-x:auto;min-width:0}aside{min-width:0}nav a{white-space:nowrap}aside .ft{display:none}main{padding:20px 16px 48px}.c3{grid-column:span 6}.c4,.c5,.c6,.c7,.c8{grid-column:span 12}h1{font-size:30px}}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+<linearGradient id="gp" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#F4F5F7"/><stop offset=".4" stop-color="#B9BEC5"/><stop offset=".6" stop-color="#7E848C"/><stop offset=".8" stop-color="#D9DCE0"/><stop offset="1" stop-color="#A3A8AF"/></linearGradient>
+<linearGradient id="ga" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#C9CCD1" stop-opacity=".35"/><stop offset="1" stop-color="#C9CCD1" stop-opacity="0"/></linearGradient>
+<symbol id="tri" viewBox="0 0 100 120"><g fill="url(#gp)"><polygon points="50,2 58,14 42,14"/><rect x="46.5" y="12" width="7" height="100"/><path d="M16 26l7 8v26l21 16v6h-6v-2L16 64z"/><path d="M84 26l-7 8v26L56 76v6h6v-2l22-16z"/><rect x="32" y="82" width="36" height="7"/><rect x="36" y="89" width="6" height="13"/><rect x="58" y="89" width="6" height="13"/></g></symbol>
+</defs></svg>
+<div class="app">
+<aside>
+  <div class="brand"><svg><use href="#tri"/></svg><div><b class="metal">POSEYDON</b><small>sublimação</small></div></div>
+  <nav id="nav"></nav>
+  <div class="ft">Poseydon Hub · temporada 2026</div>
+</aside>
+<main id="main"></main>
+</div>
+<script>
+const K='poseydon_hub_v1';
+const CH=['Instagram','WhatsApp','Shopee','Mercado Livre','Elo7','Loja física'];
+const CAT=['Canecas','Camisetas','Almofadas','Squeezes/Garrafas','Quadros/Azulejos','Kits presente','Outros'];
+const NET=['Instagram','TikTok','Facebook','WhatsApp'];
+const PROD=[['Caneca personalizada','Canecas',39.9,14],['Caneca mágica','Canecas',54.9,22],['Camiseta sublimada','Camisetas',59.9,24],['Almofada 40x40','Almofadas',49.9,19],['Squeeze alumínio','Squeezes/Garrafas',44.9,18],['Azulejo decorativo','Quadros/Azulejos',34.9,11],['Kit presente Natal','Kits presente',119.9,48],['Chaveiro','Outros',14.9,4]];
+const TABS=[['geral','Visão geral'],['vendas','Vendas'],['redes','Redes sociais'],['estrategia','Estratégia'],['agentes','Agentes'],['marca','Marca'],['dados','Dados']];
+const DEF={sales:[],social:[],goals:{rev:15000,orders:250,margin:50,fol:5000},tasks:{},period:'30',net:'Instagram'};
+let S;try{S=Object.assign(structuredClone(DEF),JSON.parse(localStorage.getItem(K)||'{}'))}catch(e){S=structuredClone(DEF)}
+const save=()=>{try{localStorage.setItem(K,JSON.stringify(S))}catch(e){}};
+const brl=n=>(+n||0).toLocaleString('pt-BR',{style:'currency',currency:'BRL',maximumFractionDigits:0});
+const num=n=>Math.round(+n||0).toLocaleString('pt-BR');
+const pct=n=>(isFinite(n)?n:0).toFixed(1).replace('.',',')+'%';
+const uid=()=>Math.random().toString(36).slice(2,9);
+const loc=d=>new Date(d-d.getTimezoneOffset()*6e4).toISOString().slice(0,10);
+const today=()=>loc(new Date());
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const br=d=>d.slice(8)+'/'+d.slice(5,7);
+const opts=(a,v)=>a.map(x=>`<option${x==v?' selected':''}>${x}</option>`).join('');
+const agg=(a,k,v)=>a.reduce((m,x)=>(m[k(x)]=(m[k(x)]||0)+v(x),m),{});
+const sum=(a,f)=>a.reduce((t,x)=>t+f(x),0);
+function inP(d){if(S.period==='all')return true;const t=new Date(d+'T12:00'),n=new Date();if(S.period==='mes')return t.getMonth()==n.getMonth()&&t.getFullYear()==n.getFullYear();return (n-t)/864e5<=+S.period}
+const sales=()=>S.sales.filter(s=>inP(s.d));
+const empty=t=>`<p class="s" style="padding:24px 0">${t||'Sem dados no período.'}</p>`;
+
+/* ---------- gráficos ---------- */
+function line(L,V,fmt){if(!V.length)return empty();const W=600,H=170,mx=Math.max(...V,1),n=V.length,X=i=>n<2?W/2:i*W/(n-1),Y=v=>H-v/mx*(H-12),p=V.map((v,i)=>X(i).toFixed(1)+','+Y(v).toFixed(1)).join(' '),st=Math.ceil(n/8);
+return `<svg viewBox="-12 0 ${W+24} ${H+22}" class="ch"><line x1="0" x2="${W}" y1="${H}" y2="${H}" stroke="#24282E"/><polygon points="0,${H} ${p} ${W},${H}" fill="url(#ga)"/><polyline points="${p}" fill="none" stroke="#DADDE1" stroke-width="2" stroke-linejoin="round"/>${V.map((v,i)=>`<circle cx="${X(i)}" cy="${Y(v)}" r="${n>40?2:3}" fill="#F4F5F7"><title>${L[i]}: ${fmt(v)}</title></circle>`).join('')}${L.map((l,i)=>i%st?'':`<text x="${X(i)}" y="${H+16}" text-anchor="middle">${l}</text>`).join('')}</svg>`}
+function hbars(m,fmt,lim=8){const e=Object.entries(m).sort((a,b)=>b[1]-a[1]).slice(0,lim);if(!e.length)return empty();const mx=e[0][1]||1,t=sum(e,x=>x[1])||1;
+return `<div class="hb">${e.map(([k,v])=>`<div><span>${esc(k)}</span><span>${fmt(v)} <span class="s">${pct(v/t*100)}</span></span><div class="bar"><i style="width:${v/mx*100}%"></i></div></div>`).join('')}</div>`}
+function daily(a){if(!a.length)return[[],[]];const m=agg(a,s=>s.d,s=>s.v),ks=Object.keys(m).sort();
+if(ks.length&&(new Date(ks.at(-1))-new Date(ks[0]))/864e5>75){const mm=agg(a,s=>s.d.slice(0,7),s=>s.v),k2=Object.keys(mm).sort();return[k2.map(k=>k.slice(5)+'/'+k.slice(2,4)),k2.map(k=>mm[k])]}
+const L=[],V=[];for(let d=new Date(ks[0]+'T12:00'),e=new Date(ks.at(-1)+'T12:00');d<=e;d.setDate(d.getDate()+1)){const k=loc(d);L.push(br(k));V.push(m[k]||0)}return[L,V]}
+
+/* ---------- cálculos ---------- */
+function kp(a){const r=sum(a,s=>s.v),c=sum(a,s=>s.c),o=a.length;return{r,c,o,t:o?r/o:0,m:r?(r-c)/r*100:0,l:r-c}}
+function socialLatest(){const o={};NET.forEach(n=>{const a=S.social.filter(x=>x.net==n).sort((x,y)=>x.d<y.d?-1:1);if(a.length)o[n]={cur:a.at(-1),prev:a.at(-2)}});return o}
+function monthProj(){const n=new Date(),mk=today().slice(0,7),mtd=sum(S.sales.filter(s=>s.d.startsWith(mk)),s=>s.v),l7=sum(S.sales.filter(s=>(n-new Date(s.d+'T12:00'))/864e5<=7),s=>s.v)/7,left=new Date(n.getFullYear(),n.getMonth()+1,0).getDate()-n.getDate();return{mtd,proj:mtd+l7*left,l7}}
+function insights(){const a=sales(),k=kp(a),out=[];if(!a.length)return['Ainda não há vendas registradas neste período. Registre na aba Vendas ou carregue os dados de exemplo em Dados.'];
+const ch=Object.entries(agg(a,s=>s.ch,s=>s.v)).sort((x,y)=>y[1]-x[1]),ct=Object.entries(agg(a,s=>s.cat,s=>s.v-s.c)).sort((x,y)=>y[1]-x[1]);
+out.push(`<b>${ch[0][0]}</b> concentra ${pct(ch[0][1]/k.r*100)} do faturamento.`+(ch[0][1]/k.r>.5?' Dependência alta: use a Black Friday para levar clientes a um 2º canal.':''));
+out.push(`A categoria que mais gera lucro é <b>${ct[0][0]}</b> (${brl(ct[0][1])}): ela deve puxar as ofertas-âncora.`);
+if(k.t<80)out.push(`Ticket médio de ${brl(k.t)}. Kits (ex.: caneca + almofada) e frete grátis a partir de R$ 99 aumentam o valor de cada pedido.`);
+out.push(k.m<S.goals.margin?`Margem de ${pct(k.m)}, <span class="dn">abaixo da meta de ${S.goals.margin}%</span>. Revise o preço nos marketplaces, onde as taxas consomem 14–20%.`:`Margem de ${pct(k.m)}, <span class="up">dentro da meta</span>. Há espaço para cupons de até 10% na BF.`);
+const p=monthProj();out.push(`Projeção do mês: ${brl(p.proj)} (ritmo de ${brl(p.l7)}/dia) — `+(p.proj>=S.goals.rev?'<span class="up">bate a meta</span>.':`<span class="dn">faltam ${brl(S.goals.rev-p.proj)} para a meta</span>.`));
+const sl=Object.entries(socialLatest()).filter(([,x])=>x.cur.reach).sort((x,y)=>y[1].cur.eng/y[1].cur.reach-x[1].cur.eng/x[1].cur.reach);
+if(sl.length)out.push(`Melhor engajamento: <b>${sl[0][0]}</b> (${pct(sl[0][1].cur.eng/sl[0][1].cur.reach*100)}). Concentre os reels de bastidores nessa rede.`);
+return out}
+
+/* ---------- páginas ---------- */
+const P={};
+const head=(t,s,extra='')=>`<div class="top"><div><h1>${t}</h1><p>${s}</p></div>${extra}</div>`;
+const per=()=>`<label style="min-width:170px">Período<select data-a="period">${[['7','Últimos 7 dias'],['30','Últimos 30 dias'],['mes','Mês atual'],['all','Tudo']].map(([v,l])=>`<option value="${v}"${S.period==v?' selected':''}>${l}</option>`).join('')}</select></label>`;
+const kpi=(l,v,s='',b)=>`<div class="card kpi c3"><h3>${l}</h3><div class="v">${v}</div><div class="s">${s}</div>${b!=null?`<div class="bar"><i style="width:${Math.min(100,b)}%"></i></div>`:''}</div>`;
+const days=d=>Math.max(0,Math.ceil((new Date(d+'T00:00')-new Date())/864e5));
+
+P.geral=()=>{const a=sales(),k=kp(a),[L,V]=daily(a);
+return head('Visão geral','Como a loja está agora e o que fazer em seguida.',per())+
+`<div class="grid">${[['Black Friday','2026-11-27'],['Cyber Monday','2026-11-30'],['Último pedido p/ Natal','2026-12-15'],['Natal','2026-12-25']].map(([l,d])=>`<div class="card cd c3"><h3>${l}</h3><div class="v metal">${days(d)}</div><div class="s">dias · ${br(d)}</div></div>`).join('')}
+${kpi('Faturamento',brl(k.r),`meta ${brl(S.goals.rev)}`,k.r/S.goals.rev*100)}${kpi('Pedidos',num(k.o),`meta ${num(S.goals.orders)}`,k.o/S.goals.orders*100)}${kpi('Ticket médio',brl(k.t),'por pedido')}${kpi('Margem bruta',pct(k.m),`lucro ${brl(k.l)} · meta ${S.goals.margin}%`,k.m/S.goals.margin*100)}
+<div class="card c8"><h3>Faturamento por dia</h3>${line(L,V,brl)}</div>
+<div class="card c4"><h3>Leitura dos agentes</h3><ul class="ins">${insights().map(x=>`<li>${x}</li>`).join('')}</ul></div>
+<div class="card c6"><h3>Faturamento por canal</h3>${hbars(agg(a,s=>s.ch,s=>s.v),brl)}</div>
+<div class="card c6"><h3>Faturamento por categoria</h3>${hbars(agg(a,s=>s.cat,s=>s.v),brl)}</div></div>`};
+
+P.vendas=()=>{const a=sales(),k=kp(a),t=today();
+return head('Vendas','Registre cada pedido. O painel inteiro é calculado a partir daqui.',per())+
+`<div class="grid"><div class="card c12"><h3>Novo pedido</h3><form class="f" data-f="sale">
+<label>Data<input type="date" name="d" value="${t}" required></label>
+<label>Produto<input name="prod" list="pl" required placeholder="Ex.: Caneca personalizada"><datalist id="pl">${PROD.map(p=>`<option>${p[0]}</option>`).join('')}</datalist></label>
+<label>Categoria<select name="cat">${opts(CAT)}</select></label><label>Canal<select name="ch">${opts(CH)}</select></label>
+<label>Qtd<input type="number" name="q" value="1" min="1"></label><label>Valor total (R$)<input type="number" step=".01" name="v" required></label>
+<label>Custo total (R$)<input type="number" step=".01" name="c" value="0"></label><button class="btn">Adicionar</button></form></div>
+${kpi('Faturamento',brl(k.r))}${kpi('Pedidos',num(k.o))}${kpi('Ticket médio',brl(k.t))}${kpi('Lucro bruto',brl(k.l),pct(k.m)+' de margem')}
+<div class="card c5"><h3>Ranking de produtos (lucro)</h3>${hbars(agg(a,s=>s.prod,s=>s.v-s.c),brl,10)}</div>
+<div class="card c7"><h3>Pedidos do período (${a.length})</h3><div class="tw">${a.length?`<table><tr><th>Data</th><th>Produto</th><th>Canal</th><th class="n">Qtd</th><th class="n">Valor</th><th class="n">Margem</th><th></th></tr>${[...a].sort((x,y)=>x.d<y.d?1:-1).slice(0,200).map(s=>`<tr><td>${br(s.d)}</td><td>${esc(s.prod)}</td><td>${s.ch}</td><td class="n">${s.q}</td><td class="n">${brl(s.v)}</td><td class="n">${pct(s.v?(s.v-s.c)/s.v*100:0)}</td><td><button class="x" data-del="sales:${s.id}" title="Excluir">×</button></td></tr>`).join('')}</table>`:empty()}</div></div></div>`};
+
+P.redes=()=>{const sl=socialLatest(),a=S.social.filter(x=>x.net==S.net).sort((x,y)=>x.d<y.d?-1:1);
+return head('Redes sociais','Uma foto semanal de cada rede: seguidores, alcance e interações.')+
+`<div class="grid"><div class="card c12"><h3>Registrar métricas</h3><form class="f" data-f="soc">
+<label>Data<input type="date" name="d" value="${today()}" required></label><label>Rede<select name="net">${opts(NET,S.net)}</select></label>
+<label>Seguidores<input type="number" name="fol" required></label><label>Alcance (7 dias)<input type="number" name="reach"></label>
+<label>Interações (7 dias)<input type="number" name="eng"></label><label>Posts (7 dias)<input type="number" name="posts"></label><button class="btn">Salvar</button></form></div>
+${Object.keys(sl).length?Object.entries(sl).map(([n,{cur,prev}])=>{const d=prev?cur.fol-prev.fol:0;return kpi(n,num(cur.fol),`<span class="${d>=0?'up':'dn'}">${d>=0?'+':''}${num(d)}</span> seguidores · engaj. ${pct(cur.reach?cur.eng/cur.reach*100:0)}`,n=='Instagram'?cur.fol/S.goals.fol*100:null)}).join(''):'<div class="card c12">'+empty('Nenhuma métrica registrada ainda.')+'</div>'}
+<div class="card c8"><div class="row" style="justify-content:space-between"><h3>Evolução de seguidores</h3><select data-a="net" style="width:auto">${opts(NET,S.net)}</select></div>${line(a.map(x=>br(x.d)),a.map(x=>x.fol),num)}</div>
+<div class="card c4"><h3>Taxa de engajamento</h3>${line(a.map(x=>br(x.d)),a.map(x=>x.reach?x.eng/x.reach*100:0),pct)}<p class="s" style="margin-top:8px">Interações ÷ alcance. Acima de 4% é saudável para uma loja pequena.</p></div>
+<div class="card c12"><h3>Histórico</h3><div class="tw">${S.social.length?`<table><tr><th>Data</th><th>Rede</th><th class="n">Seguidores</th><th class="n">Alcance</th><th class="n">Interações</th><th class="n">Posts</th><th></th></tr>${[...S.social].sort((x,y)=>x.d<y.d?1:-1).map(x=>`<tr><td>${br(x.d)}</td><td>${x.net}</td><td class="n">${num(x.fol)}</td><td class="n">${num(x.reach)}</td><td class="n">${num(x.eng)}</td><td class="n">${num(x.posts)}</td><td><button class="x" data-del="social:${x.id}">×</button></td></tr>`).join('')}</table>`:empty()}</div></div></div>`};
+
+const PLAN=[
+['Aquecimento Black Friday','19–26/nov',[['bf1','Definir 3 ofertas-âncora: kit caneca + almofada, caneca mágica, camiseta'],['bf2','Montar lista VIP no WhatsApp com cupom antecipado'],['bf3','Ajustar preços, fotos e frete na Shopee e no Mercado Livre antes do dia 27'],['bf4','Publicar 3 posts-teaser e 1 reel de bastidores da sublimação'],['bf5','Comprar insumos: canecas, papel, tinta e camisetas brancas']]],
+['Black Friday + Cyber Monday','27–30/nov',[['cy1','Enviar a oferta para a lista VIP à 0h'],['cy2','Publicar stories a cada 2 h com as unidades restantes'],['cy3','Responder DMs em até 15 min, seguindo o script de vendas'],['cy4','Registrar todas as vendas no Hub no mesmo dia']]],
+['Natal personalizado','01–15/dez',[['na1','Lançar catálogo de Natal: família, casal e empresas'],['na2','Oferecer brindes corporativos com nome ou logo para empresas'],['na3','Divulgar a data-limite de pedidos para entrega até 24/12'],['na4','Publicar carrossel “presentes por faixa de preço”']]],
+['Reta final','16–24/dez',[['rf1','Oferecer retirada e entrega local expressa'],['rf2','Vender vale-presente digital para quem deixou para a última hora'],['rf3','Repostar fotos de clientes como prova social']]],
+['Pós-Natal e Ano Novo','26–31/dez',[['an1','Lançar linha Réveillon/2027: canecas e calendários'],['an2','Enviar pesquisa de satisfação com cupom de recompra'],['an3','Fechar o relatório da temporada no Hub']]]];
+const allT=PLAN.flatMap(p=>p[2]),doneN=()=>allT.filter(t=>S.tasks[t[0]]).length;
+const taskEl=([id,t])=>`<label class="task${S.tasks[id]?' done':''}"><input type="checkbox" data-t="${id}"${S.tasks[id]?' checked':''}><span>${t}</span></label>`;
+
+P.estrategia=()=>{const g=S.goals,p=monthProj();
+return head('Estratégia','Metas, calendário de fim de ano e plano de execução.')+
+`<div class="grid"><div class="card c8"><h3>Metas do mês</h3><form class="f" data-f="goals">
+<label>Faturamento (R$)<input type="number" name="rev" value="${g.rev}"></label><label>Pedidos<input type="number" name="orders" value="${g.orders}"></label>
+<label>Margem mínima (%)<input type="number" name="margin" value="${g.margin}"></label><label>Seguidores IG<input type="number" name="fol" value="${g.fol}"></label><button class="btn">Salvar metas</button></form></div>
+${kpi('Plano executado',pct(doneN()/allT.length*100),`${doneN()} de ${allT.length} ações`,doneN()/allT.length*100).replace('c3','c4')}
+${kpi('Faturado no mês',brl(p.mtd),'',p.mtd/g.rev*100)}${kpi('Projeção do mês',brl(p.proj),'pelo ritmo dos últimos 7 dias',p.proj/g.rev*100)}${kpi('Ritmo diário',brl(p.l7),'média dos últimos 7 dias')}${kpi('Ritmo necessário',brl(Math.max(0,g.rev-p.mtd)/Math.max(1,new Date(new Date().getFullYear(),new Date().getMonth()+1,0).getDate()-new Date().getDate())),'por dia, até o fim do mês')}
+${PLAN.map(([t,d,ts])=>`<div class="card c4"><div class="row" style="justify-content:space-between;margin-bottom:6px"><h2 style="margin:0">${t}</h2><span class="tag">${d}</span></div>${ts.map(taskEl).join('')}</div>`).join('')}
+<div class="card c4"><h3>Princípios</h3><ul class="ins"><li>Toda decisão parte do painel: o canal com maior lucro recebe mais esforço.</li><li>Prazo de produção é a promessa da marca. Nunca venda o que não dá para entregar.</li><li>Prefira kits e combos a descontos: o ticket sobe e a margem se mantém.</li></ul></div></div>`};
+
+const AG=[
+['M','Agente de Marketing','Fazer a marca ser vista e desejada: conteúdo, redes e campanhas.',()=>{const i=socialLatest().Instagram;return[['Seguidores IG',i?num(i.cur.fol):'—'],['Engajamento IG',i&&i.cur.reach?pct(i.cur.eng/i.cur.reach*100):'—']]},['Segunda: planejar a pauta da semana (3 reels, 2 carrosséis, stories diários)','Todo dia: registrar as métricas das redes no Hub','Sexta: identificar o melhor post e repetir o formato'],[['mk1','Pacote de posts da Black Friday'],['mk2','Roteiros de reels de bastidores da sublimação'],['mk3','Carrosséis de presentes por faixa de preço']]],
+['V','Agente de Vendas','Transformar atenção em pedidos e aumentar o ticket médio.',()=>{const k=kp(sales());return[['Pedidos',num(k.o)],['Ticket médio',brl(k.t)]]},['Responder DMs e WhatsApp com o script','Oferecer kit ou item adicional em todo pedido','Retomar orçamentos sem resposta em 24 h'],[['vd1','Script de atendimento para WhatsApp'],['vd2','Tabela de kits e itens adicionais'],['vd3','Comparativo Shopee × Mercado Livre × Elo7 (taxas e frete)']]],
+['E','Agente de Estratégia','Decidir com dados: metas, preços, canais e calendário.',()=>{const k=kp(sales()),p=monthProj();return[['Margem',pct(k.m)],['Projeção x meta',pct(p.proj/S.goals.rev*100)]]},['Segunda: revisar o painel e ajustar metas','Revisar o preço sempre que a margem ficar abaixo da meta','Direcionar esforço para o canal com maior lucro'],[['es1','Precificação com as taxas de cada marketplace'],['es2','Landing page para clientes'],['es3','Plano de recompra para 2027']]]];
+P.agentes=()=>head('Agentes','Sua equipe: cada agente tem missão, indicadores, rotina e entregas.')+
+`<div class="grid">${AG.map(([i,n,m,k,r,nx])=>`<div class="card c4"><div class="row" style="margin-bottom:12px"><div class="av">${i}</div><div><h2 style="margin:0">${n}</h2><div class="s">${m}</div></div></div>
+<div class="grid" style="margin-bottom:14px">${k().map(([l,v])=>`<div class="c6"><div class="s">${l}</div><div class="kpi"><div class="v metal">${v}</div></div></div>`).join('')}</div>
+<h3>Rotina</h3><ul class="ins" style="margin-bottom:14px">${r.map(x=>`<li>${x}</li>`).join('')}</ul><h3>Próximas entregas</h3>${nx.map(taskEl).join('')}</div>`).join('')}
+<div class="card c12"><h3>Roteiro do projeto</h3><ol class="rm">${[['p1','Nova identidade visual: preto e platina'],['p2','Hub de gestão (este site)'],['p3','Conteúdo: posts, reels e carrosséis'],['p4','Análise de marketplaces e envio: Shopee, Mercado Livre, Elo7, Melhor Envio'],['p5','Landing page para clientes']].map(taskEl).map(x=>`<li>${x}</li>`).join('')}</ol></div></div>`;
+
+P.marca=()=>head('Marca','Identidade Poseydon: preto profundo e platina. Elegante e forte.')+
+`<div class="grid"><div class="c7 hero"><svg><use href="#tri"/></svg><b class="metal">POSEYDON</b><small>sublimação</small></div>
+<div class="card c5"><h3>Conceito</h3><p style="margin-bottom:12px">O tridente representa domínio e precisão; o preto traz peso e sofisticação; a platina dá o brilho de produto premium. A marca deve parecer <b>joalheria</b>, não papelaria.</p><h3>Tom de voz</h3><ul class="ins"><li>Confiante e direto: frases curtas, nada de excesso de emojis.</li><li>Artesanal premium: “feito sob medida”, “peça única”.</li><li>Emoção no presente: o produto é a lembrança, não a caneca.</li></ul></div>
+${[['Ônix','#07080A'],['Grafite','#16191D'],['Aço','#24282E'],['Prata','#8B9199'],['Platina','#C9CCD1'],['Brilho','#F4F5F7']].map(([n,h])=>`<div class="card c3" style="grid-column:span 2"><div class="sw" style="background:${h}"></div><b>${n}</b><div class="s">${h}</div></div>`).join('')}
+<div class="card c6"><h3>Tipografia</h3><div style="font:600 34px 'Cormorant Garamond',serif">Cormorant Garamond</div><p class="s" style="margin-bottom:12px">Títulos, logotipo e frases de impacto. Serifa clássica, em diálogo com a logo.</p><div style="font:500 22px Inter">Inter</div><p class="s">Textos, preços, dados e interface.</p></div>
+<div class="card c6"><h3>Regras de uso</h3><ul class="ins"><li>Logo em platina sobre fundo preto (versão principal) ou em preto sobre branco.</li><li>Use o gradiente metálico só em destaques: logo, números e botões.</li><li>Fotos de produto com fundo escuro, luz lateral e reflexo suave.</li><li>Evite cores saturadas. Para Natal, só acentos discretos de vinho ou dourado-champanhe.</li></ul></div></div>`;
+
+P.dados=()=>head('Dados','Backup e importação. Os dados ficam salvos neste navegador.')+
+`<div class="grid"><div class="card c6"><h3>Backup</h3><p class="s" style="margin-bottom:12px">Exporte toda semana. Para usar em outro computador, importe o arquivo lá.</p><div class="row"><button class="btn" data-a="export">Exportar JSON</button><label class="btn g" style="display:inline-block">Importar JSON<input type="file" accept=".json" data-a="import" hidden></label></div></div>
+<div class="card c6"><h3>Dados de exemplo</h3><p class="s" style="margin-bottom:12px">Pedidos e métricas fictícios, só para visualizar o painel. Saem sem apagar os seus dados reais.</p><div class="row"><button class="btn g" data-a="demo">Carregar exemplo</button><button class="btn g" data-a="undemo">Remover exemplo</button><button class="btn g" data-a="reset" style="color:var(--bad)">Apagar tudo</button></div></div>
+<div class="card c12 s">Pedidos: ${S.sales.length} (${S.sales.filter(s=>s.demo).length} de exemplo) · Métricas sociais: ${S.social.length}</div></div>`;
+
+function demo(){let z=11;const r=()=>(z=z*16807%2147483647)/2147483647,now=new Date();
+for(let i=50;i>=1;i--){const d=new Date(now);d.setDate(d.getDate()-i);const n=1+Math.floor(r()*(3+(50-i)/9));for(let j=0;j<n;j++){const p=PROD[Math.floor(r()*PROD.length)],q=r()<.2?2:1;S.sales.push({id:uid(),demo:1,d:loc(d),prod:p[0],cat:p[1],ch:CH[Math.floor(r()**1.5*CH.length)],q,v:+(p[2]*q).toFixed(2),c:+(p[3]*q).toFixed(2)})}}
+[['Instagram',1850,60],['TikTok',420,45]].forEach(([n,b,g])=>{for(let w=7;w>=0;w--){const d=new Date(now);d.setDate(d.getDate()-w*7);const fol=b+(7-w)*g+Math.floor(r()*30),reach=fol*(1.2+r());S.social.push({id:uid(),demo:1,d:loc(d),net:n,fol,reach:Math.round(reach),eng:Math.round(reach*(.03+r()*.03)),posts:3+Math.floor(r()*4)})}})}
+
+/* ---------- render e eventos ---------- */
+function render(){const t=(location.hash.slice(1)||'geral');const pg=P[t]?t:'geral';
+document.getElementById('nav').innerHTML=TABS.map(([k,l])=>`<a href="#${k}" class="${k==pg?'on':''}">${l}</a>`).join('');
+const dm=S.sales.some(s=>s.demo)?'<div class="note">Você está vendo dados de exemplo. Remova-os na aba Dados quando começar a registrar vendas reais.</div>':'';
+document.getElementById('main').innerHTML=dm+P[pg]();}
+addEventListener('hashchange',()=>{render();scrollTo(0,0)});
+document.addEventListener('submit',e=>{e.preventDefault();const f=e.target,o=Object.fromEntries(new FormData(f));
+if(f.dataset.f=='sale')S.sales.push({id:uid(),d:o.d,prod:o.prod.trim(),cat:o.cat,ch:o.ch,q:+o.q||1,v:+o.v||0,c:+o.c||0});
+if(f.dataset.f=='soc'){S.social.push({id:uid(),d:o.d,net:o.net,fol:+o.fol||0,reach:+o.reach||0,eng:+o.eng||0,posts:+o.posts||0});S.net=o.net}
+if(f.dataset.f=='goals')for(const k in o)S.goals[k]=+o[k]||0;
+save();render()});
+document.addEventListener('input',e=>{const el=e.target;if(el.name=='prod'||el.name=='q'){const f=el.form,p=PROD.find(p=>p[0]==f.prod.value);if(p){const q=+f.q.value||1;f.cat.value=p[1];f.v.value=(p[2]*q).toFixed(2);f.c.value=(p[3]*q).toFixed(2)}}});
+document.addEventListener('change',e=>{const el=e.target,a=el.dataset.a;
+if(el.dataset.t){S.tasks[el.dataset.t]=el.checked;save();render();return}
+if(a=='period'){S.period=el.value;save();render()}
+if(a=='net'){S.net=el.value;save();render()}
+if(a=='import'&&el.files[0])el.files[0].text().then(t=>{try{S=Object.assign(structuredClone(DEF),JSON.parse(t));save();render();alert('Dados importados.')}catch(_){alert('Arquivo inválido.')}})});
+document.addEventListener('click',e=>{const b=e.target.closest('[data-del],button[data-a]');if(!b)return;
+if(b.dataset.del){const[k,id]=b.dataset.del.split(':');S[k]=S[k].filter(x=>x.id!=id)}
+const a=b.dataset.a;
+if(a=='demo'){if(S.sales.some(s=>s.demo))return;demo()}
+if(a=='undemo'){S.sales=S.sales.filter(s=>!s.demo);S.social=S.social.filter(s=>!s.demo)}
+if(a=='reset'&&confirm('Apagar todos os dados? Esta ação não pode ser desfeita.'))S=structuredClone(DEF);
+if(a=='export'){const u=URL.createObjectURL(new Blob([JSON.stringify(S,null,1)],{type:'application/json'})),l=document.createElement('a');l.href=u;l.download=`poseydon-backup-${today()}.json`;l.click();URL.revokeObjectURL(u);return}
+save();render()});
+render();
+</script>
+</body>
+</html>
