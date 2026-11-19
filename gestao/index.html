@@ -139,7 +139,7 @@ const days=d=>Math.max(0,Math.ceil((new Date(d+'T00:00')-new Date())/864e5));
 
 P.geral=()=>{const a=sales(),k=kp(a),[L,V]=daily(a);
 return head('Visão geral','Como a loja está agora e o que fazer em seguida.',per())+
-`<div class="grid">${[['Último pedido p/ Natal','2026-12-15'],['Natal','2026-12-25'],['Réveillon','2027-01-01']].map(([l,d])=>`<div class="card cd c4"><h3>${l}</h3><div class="v metal">${days(d)}</div><div class="s">dias · ${br(d)}</div></div>`).join('')}
+`<div class="grid">${[['Natal','2026-12-25'],['Réveillon','2027-01-01']].map(([l,d])=>`<div class="card cd c6"><h3>${l}</h3><div class="v metal">${days(d)}</div><div class="s">dias · ${br(d)}</div></div>`).join('')}
 ${kpi('Faturamento',brl(k.r),`meta ${brl(S.goals.rev)}`,k.r/S.goals.rev*100)}${kpi('Pedidos',num(k.o),`meta ${num(S.goals.orders)}`,k.o/S.goals.orders*100)}${kpi('Ticket médio',brl(k.t),'por pedido')}${kpi('Margem bruta',pct(k.m),`lucro ${brl(k.l)} · meta ${S.goals.margin}%`,k.m/S.goals.margin*100)}
 <div class="card c8"><h3>Faturamento por dia</h3>${line(L,V,brl)}</div>
 <div class="card c4"><h3>Leitura dos agentes</h3><ul class="ins">${insights().map(x=>`<li>${x}</li>`).join('')}</ul></div>
@@ -172,7 +172,7 @@ ${Object.keys(sl).length?Object.entries(sl).map(([n,{cur,prev}])=>{const d=prev?
 const PLAN=[
 ['Aquecimento Black Friday','19–26/nov',[['bf1','Definir 3 ofertas-âncora: kit caneca + almofada, caneca mágica, camiseta'],['bf2','Montar lista VIP no WhatsApp com cupom antecipado'],['bf3','Ajustar preços, fotos e frete na Shopee e no Mercado Livre antes do dia 27'],['bf4','Publicar 3 posts-teaser e 1 reel de bastidores da sublimação'],['bf5','Comprar insumos: canecas, papel, tinta e camisetas brancas']]],
 ['Black Friday + Cyber Monday','27–30/nov',[['cy1','Enviar a oferta para a lista VIP à 0h'],['cy2','Publicar stories a cada 2 h com as unidades restantes'],['cy3','Responder DMs em até 15 min, seguindo o script de vendas'],['cy4','Registrar todas as vendas no Hub no mesmo dia']]],
-['Natal personalizado','01–15/dez',[['na1','Lançar catálogo de Natal: família, casal e empresas'],['na2','Oferecer brindes corporativos com nome ou logo para empresas'],['na3','Divulgar a data-limite de pedidos para entrega até 24/12'],['na4','Publicar carrossel “presentes por faixa de preço”']]],
+['Natal personalizado','01–15/dez',[['na1','Lançar catálogo de Natal: família, casal e empresas'],['na2','Oferecer brindes corporativos com nome ou logo para empresas'],['na3','Combinar o prazo de entrega no fechamento de cada pedido'],['na4','Publicar carrossel “presentes por faixa de preço”']]],
 ['Reta final','16–24/dez',[['rf1','Oferecer retirada e entrega local expressa'],['rf2','Vender vale-presente digital para quem deixou para a última hora'],['rf3','Repostar fotos de clientes como prova social']]],
 ['Pós-Natal e Ano Novo','26–31/dez',[['an1','Lançar linha Réveillon/2027: canecas e calendários'],['an2','Enviar pesquisa de satisfação com cupom de recompra'],['an3','Fechar o relatório da temporada no Hub']]]];
 const allT=PLAN.flatMap(p=>p[2]),doneN=()=>allT.filter(t=>S.tasks[t[0]]).length;

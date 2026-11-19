@@ -172,7 +172,7 @@ footer nav{display:flex;gap:24px;flex-wrap:wrap}footer a:hover{color:var(--tx)}
   <div class="eyebrow rv">Contagem para o Natal</div>
   <h2 class="rv">O presente perfeito<br>tem <em class="metal">hora marcada</em>.</h2>
   <div class="clock rv" id="clock" role="timer" aria-label="Tempo até o Natal"></div>
-  <p class="dl rv">Os prazos variam conforme o produto e a quantidade. <b>Consulte o seu pelo WhatsApp</b> e garanta a entrega antes do Natal.</p>
+  <p class="dl rv">Sem data-limite: o <b>prazo de produção e entrega é combinado com você</b> no fechamento do pedido.</p>
   <a class="btn rv" data-wa="Olá! Quero garantir meu presente de Natal." href="#">Garantir meu presente <svg width="16" height="16"><use href="#arr"/></svg></a>
 </div></section>
 
@@ -186,7 +186,7 @@ footer nav{display:flex;gap:24px;flex-wrap:wrap}footer a:hover{color:var(--tx)}
 <section id="kits" class="kits"><div class="wrap">
   <div class="head rv"><div><div class="eyebrow">Temporada 2026</div><h2>Kits de <em class="metal">fim de ano</em>.</h2></div><p>Combinações prontas para presentear. Saem mais em conta que as peças avulsas e chegam em embalagem de presente.</p></div>
   <div class="kg">
-    <div class="kit f rv"><div><div class="eyebrow">Natal · consulte os prazos</div><h3>Presentes de Natal com o nome de quem você ama.</h3><ul><li>Canecas e almofadas com foto</li><li>Embalagem de presente inclusa</li><li>Arte grátis com prévia</li></ul></div><a class="btn" data-wa="Olá! Quero um presente de Natal personalizado." href="#">Montar meu presente <svg width="16" height="16"><use href="#arr"/></svg></a></div>
+    <div class="kit f rv"><div><div class="eyebrow">Natal · prazo a combinar</div><h3>Presentes de Natal com o nome de quem você ama.</h3><ul><li>Canecas e almofadas com foto</li><li>Embalagem de presente inclusa</li><li>Arte grátis com prévia</li></ul></div><a class="btn" data-wa="Olá! Quero um presente de Natal personalizado." href="#">Montar meu presente <svg width="16" height="16"><use href="#arr"/></svg></a></div>
     <div class="kit rv"><div><div class="eyebrow">Para casais e família</div><h3>Kit Presente</h3><ul><li>Caneca personalizada</li><li>Almofada 40×40 com foto</li><li>Embalagem de presente</li></ul></div><a class="btn g" data-wa="Olá! Tenho interesse no Kit Presente." href="#">Quero este kit</a></div>
     <div class="kit rv"><div><div class="eyebrow">Para empresas</div><h3>Kit Corporativo</h3><ul><li>Caneca ou squeeze com logo</li><li>Cartão com mensagem</li><li>A partir de 10 unidades</li></ul></div><a class="btn g" data-wa="Olá! Quero um orçamento do Kit Corporativo." href="#">Pedir orçamento</a></div>
   </div>
@@ -210,7 +210,7 @@ footer nav{display:flex;gap:24px;flex-wrap:wrap}footer a:hover{color:var(--tx)}
 
 <section id="faq" style="padding-top:0"><div class="wrap faq">
   <div class="head rv"><div><div class="eyebrow">Dúvidas</div><h2>Perguntas <em class="metal">frequentes</em>.</h2></div></div>
-  <details class="rv"><summary>Qual o prazo de produção?</summary><p>Varia conforme o produto e a quantidade. Consulte o prazo do seu pedido pelo WhatsApp antes de fechar, principalmente para entregas de Natal.</p></details>
+  <details class="rv"><summary>Qual o prazo de produção?</summary><p>O prazo é combinado com você no fechamento do pedido, conforme o produto e a quantidade.</p></details>
   <details class="rv"><summary>A estampa desbota ou sai na lavagem?</summary><p>Não. Na sublimação a tinta entra no material, em vez de ficar por cima dele. Canecas de cerâmica podem ir ao micro-ondas (a caneca mágica não). Lave à mão para durar ainda mais.</p></details>
   <details class="rv"><summary>Preciso enviar a arte pronta?</summary><p>Não. Basta mandar a foto, o texto ou a ideia. Nós criamos a arte e enviamos uma prévia para você aprovar.</p></details>
   <details class="rv"><summary>Como recebo meu pedido?</summary><p>Enviamos pelos Correios para todo o Brasil. Em Brasília, também fazemos entrega local e envio por aplicativo.</p></details>
@@ -235,7 +235,7 @@ footer nav{display:flex;gap:24px;flex-wrap:wrap}footer a:hover{color:var(--tx)}
 /* ===== CONFIGURAÇÃO: troque aqui ===== */
 const WHATSAPP='5500000000000';            // DDI + DDD + número, só dígitos
 const INSTAGRAM='https://instagram.com/poseydonsublimacao';  // link do perfil
-const NATAL='2026-12-25',CORTE_NATAL='2026-12-15';
+const NATAL='2026-12-25';
 const PRODUTOS=[ // [nome, a partir de (R$), ícone, selo]
  ['Caneca personalizada',35.9,'mug','Mais vendida'],['Caneca mágica',47.9,'mug','Revela a foto'],['Camiseta sublimada',39.9,'shirt',''],['Almofada com foto',29.9,'pillow',''],
  ['Garrafa personalizada',29.9,'bottle','Vários modelos'],['Azulejo decorativo',34.9,'tile','Vários tamanhos'],['Chaveiro',14.9,'key',''],['Kit presente',0,'gift','Em breve']];
@@ -252,11 +252,11 @@ const wa=m=>`https://wa.me/${WHATSAPP}?text=${encodeURIComponent(m)}`;
 const days=d=>Math.max(0,Math.ceil((new Date(d+'T00:00')-new Date())/864e5));
 const brl=n=>n.toLocaleString('pt-BR',{style:'currency',currency:'BRL'});
 document.getElementById('prods').innerHTML=PRODUTOS.map(([n,p,i,t])=>`<a class="card rv" data-wa="Olá! Quero personalizar: ${n}." href="#"><div class="img">${t?`<span class="tg">${t}</span>`:''}<svg viewBox="0 0 100 100">${ICON[i]}</svg></div><div class="in"><div><h3>${n}</h3><div class="pr">${p?'a partir de '+brl(p):'em breve · sob consulta'}</div></div><span class="go"><svg width="16" height="16"><use href="#arr"/></svg></span></div></a>`).join('');
-const avisos=[`Natal em ${days(NATAL)} dias`,'Entrega local em Brasília','Consulte o prazo para entrega no Natal','Pix, cartão ou parcelado','Arte grátis com prévia para aprovação','Enviamos para todo o Brasil'];
+const avisos=[`Natal em ${days(NATAL)} dias`,'Entrega local em Brasília','Prazo combinado no fechamento do pedido','Pix, cartão ou parcelado','Arte grátis com prévia para aprovação','Enviamos para todo o Brasil'];
 const rep=(a,n)=>Array(n).fill(a).flat();
 document.getElementById('bar').innerHTML=rep(avisos,4).map(t=>`<span>${t} ✦</span>`).join('');
 document.getElementById('big').innerHTML=rep(['Canecas','Camisetas','Almofadas','Squeezes','Azulejos','Kits presente'],4).map(t=>`<span>${t}</span>`).join('');
-document.getElementById('chip').textContent=`Natal em ${days(NATAL)} dias · consulte os prazos`;
+document.getElementById('chip').textContent=`Natal em ${days(NATAL)} dias · faça seu pedido`;
 function tick(){const s=Math.max(0,Math.floor((new Date(NATAL+'T00:00')-new Date())/1e3)),v=[[Math.floor(s/86400),'dias'],[Math.floor(s%86400/3600),'horas'],[Math.floor(s%3600/60),'min'],[s%60,'seg']],el=document.getElementById('clock');
 if(!el.children.length)el.innerHTML=v.map(([,l])=>`<div><b class="metal"></b><small>${l}</small></div>`).join('');
 v.forEach(([n],i)=>{const b=el.children[i].firstChild,t=String(n).padStart(2,'0');if(b.textContent!==t){b.textContent=t;b.classList.remove('tk');void b.offsetWidth;b.classList.add('tk')}});}
