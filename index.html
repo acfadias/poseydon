@@ -236,8 +236,8 @@ const WHATSAPP='5500000000000';            // DDI + DDD + número, só dígitos
 const INSTAGRAM='https://instagram.com/poseydonsublimacao';  // link do perfil
 const NATAL='2026-12-25',CORTE_NATAL='2026-12-15';
 const PRODUTOS=[ // [nome, a partir de (R$), ícone, selo]
- ['Caneca personalizada',39.9,'mug','Mais vendida'],['Caneca mágica',54.9,'mug','Revela a foto'],['Camiseta sublimada',59.9,'shirt',''],['Almofada com foto',49.9,'pillow',''],
- ['Squeeze de alumínio',44.9,'bottle',''],['Azulejo decorativo',34.9,'tile',''],['Chaveiro',14.9,'key',''],['Kit presente',119.9,'gift','Natal']];
+ ['Caneca personalizada',35.9,'mug','Mais vendida'],['Caneca mágica',47.9,'mug','Revela a foto'],['Camiseta sublimada',39.9,'shirt',''],['Almofada com foto',29.9,'pillow',''],
+ ['Garrafa personalizada',29.9,'bottle','Vários modelos'],['Azulejo decorativo',34.9,'tile','Vários tamanhos'],['Chaveiro',14.9,'key',''],['Kit presente',0,'gift','Em breve']];
 /* ===================================== */
 const ICON={
  mug:'<rect x="14" y="18" width="46" height="56" rx="5"/><path d="M60 30h8a10 10 0 0 1 0 20h-8"/><path d="M14 30h46"/>',
@@ -250,7 +250,7 @@ const ICON={
 const wa=m=>`https://wa.me/${WHATSAPP}?text=${encodeURIComponent(m)}`;
 const days=d=>Math.max(0,Math.ceil((new Date(d+'T00:00')-new Date())/864e5));
 const brl=n=>n.toLocaleString('pt-BR',{style:'currency',currency:'BRL'});
-document.getElementById('prods').innerHTML=PRODUTOS.map(([n,p,i,t])=>`<a class="card rv" data-wa="Olá! Quero personalizar: ${n}." href="#"><div class="img">${t?`<span class="tg">${t}</span>`:''}<svg viewBox="0 0 100 100">${ICON[i]}</svg></div><div class="in"><div><h3>${n}</h3><div class="pr">a partir de ${brl(p)}</div></div><span class="go"><svg width="16" height="16"><use href="#arr"/></svg></span></div></a>`).join('');
+document.getElementById('prods').innerHTML=PRODUTOS.map(([n,p,i,t])=>`<a class="card rv" data-wa="Olá! Quero personalizar: ${n}." href="#"><div class="img">${t?`<span class="tg">${t}</span>`:''}<svg viewBox="0 0 100 100">${ICON[i]}</svg></div><div class="in"><div><h3>${n}</h3><div class="pr">${p?'a partir de '+brl(p):'em breve · sob consulta'}</div></div><span class="go"><svg width="16" height="16"><use href="#arr"/></svg></span></div></a>`).join('');
 const avisos=[`Natal em ${days(NATAL)} dias`,'Frete grátis acima de R$ 99',`Pedidos de Natal até ${CORTE_NATAL.slice(8)}/12`,'Arte grátis com prévia para aprovação','Enviamos para todo o Brasil'];
 const rep=(a,n)=>Array(n).fill(a).flat();
 document.getElementById('bar').innerHTML=rep(avisos,4).map(t=>`<span>${t} ✦</span>`).join('');
