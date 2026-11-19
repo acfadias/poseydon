@@ -1,0 +1,4 @@
+User-agent: *
+Disallow: /gestao/
+
+Sitemap: https://poseydon.com.br/sitemap.xml

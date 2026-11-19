@@ -1,6 +1,6 @@
 # Poseydon Sublimação
 
-Site estático, sem build. Publicado via GitHub Pages.
+Site estático, sem build. Publicado via GitHub Pages em https://poseydon.com.br
 
 | Caminho | O que é |
 |---|---|
